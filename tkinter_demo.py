@@ -1,27 +1,38 @@
 from tkinter import*
 from PIL import ImageTk,Image
 from tkinter import messagebox
+import re
 
 def handle_login():
   email = email_input.get()
   password = pass_input.get()
-  if(email == "jagmohannegi@gamil.com" and password == "jagmohan1234"):
-    # print("Succefully logged in")
-    messagebox.showinfo("Succefully logged in")
+  # if(email == "jagmohannegi@gamil.com" and password == "jagmohan1234"):
+    
+  #   messagebox.showinfo("Succefully logged in")
+  # else:
+    
+  #   messagebox.showerror("Login failed")
+  pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+
+  if re.match(pattern, email):
+        if email == "jagmohannegi@gmail.com" and password == "jagmohan1234":
+            messagebox.showinfo("Success", "Successfully logged in")
+        else:
+            messagebox.showerror("Login failed", "Invalid email or password")
   else:
-    # print("Login failed")
-    messagebox.showerror("Login failed")
-  
+        messagebox.showerror("Invalid email", "Please enter a valid email address")
   
 
 root = Tk()
 root.title("Login form")
-root.iconbitmap("Python-gui-Tkinter/hacker.ico")
+root.iconbitmap("hacker.ico")
+# root.iconbitmap("C:/path/to/Python-gui-Tkinter/hacker.ico")
+
 root.geometry('400x500')
 # root.minsize(500,500)
 root.configure(background="#047BD5")
 
-img=Image.open("Python-gui-Tkinter/image2.png")
+img=Image.open("image2.png")
 resized_img= img.resize((100,100))
 img= ImageTk.PhotoImage(resized_img)
 # img=ImageTk.PhotoImage(Image.open("Python-gui-Tkinter/image2.png"))
