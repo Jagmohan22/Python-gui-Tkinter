@@ -8,7 +8,7 @@ def rotate_image():
   img_label.config(image=img_array[counter%len(img_array)])
   counter=counter+1
   
-
+#for track of which wallpaper is corntly woking
 counter =1
 root =Tk()
 root.title = ("Wallpaper Viewer")
@@ -34,5 +34,6 @@ img_label.pack(pady=(15,10))
 
 next_btn=Button(root,text="Next",fg="black",bg="white",width=28,height=2,command=rotate_image)
 next_btn.pack(pady=(15,10))
+
 
 root.mainloop()
